@@ -7,19 +7,12 @@ export default function ExpenseItems(props) {
   // function changeTitle() {
   //   console.log("e");
   // }
-
+  // console.log(props);
   const [title, setTitle] = useState(props.title);
-
-  // console.log(title);
-  // console.log(setTitle);
-  // function setTitle() {
-  //   title = title;
-  // }
 
   const clickChangeTitleHandler = () => {
     // let title = "ddd";
-    console.log("e");
-    setTitle("ssss");
+    setTitle(Math.random());
   };
 
   return (
@@ -29,7 +22,10 @@ export default function ExpenseItems(props) {
         <h2>{title}</h2>
         <div className="expense-item__price">$ {props.amount}</div>
 
-        <button onClick={setTitle} className="expense-item__price">
+        <button
+          onClick={clickChangeTitleHandler}
+          className="expense-item__price"
+        >
           Change Title
         </button>
       </div>
