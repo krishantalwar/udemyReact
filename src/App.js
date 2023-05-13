@@ -37,7 +37,7 @@ function App() {
     // const expenseData = [saveExpenseData, ...expenses];
 
     setExpense((prevState) => {
-      return [saveExpenseData, ...asd];
+      return [saveExpenseData, ...prevState];
     });
 
     // console.log(expe);
