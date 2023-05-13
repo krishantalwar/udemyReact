@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 
-import logo from "./logo.svg";
-import "./App.css";
+import NewExpense from "./components/NewExpenses/NewExpenses";
 import Expenses from "./components/Expenses/Expenses";
-import NewExpenses from "./components/NewExpenses/NewExpenses";
-import ExpenseForm from "./components/NewExpenses/ExpenseFrom";
-const expe = [
+
+const DUMMY_EXPENSES = [
   {
     id: "e1",
     title: "Toilet Paper",
@@ -26,31 +24,30 @@ const expe = [
     date: new Date(2021, 5, 12),
   },
 ];
-function App() {
-  const [expenses, setExpense] = useState(expe);
 
-  const NewExpense = (saveExpenseData) => {
-    // console.log(saveExpenseData);
-    // console.log(saveExpenseData.saveExpenseData);
-    // let exp = expenses;
-    // expe.push(saveExpenseData);
-    // const expenseData = [saveExpenseData, ...expenses];
+const App = () => {
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-    setExpense((prevState) => {
-      return [saveExpenseData, ...prevState];
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      // return [expense, ...prevExpenses];
+      return [...prevExpenses, expense];
     });
-
-    // console.log(expe);
-    // setExpense(expe);
-    // console.log(expenses);
   };
 
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
+
   return (
-    <div className="App">
-      <NewExpenses newexpense={NewExpense} />
+    <div>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;

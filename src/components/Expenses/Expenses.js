@@ -10,7 +10,7 @@ export default function Expenses(props) {
   };
   return (
     <Card className="expenses">
-      <ExpensesFilter year={filterYear} onChangeFilter={filterchange} />
+      {/* <ExpensesFilter year={filterYear} onChangeFilter={filterchange} /> */}
       {props.items.map((e) => (
         <ExpenseItems
           id={e.id}
