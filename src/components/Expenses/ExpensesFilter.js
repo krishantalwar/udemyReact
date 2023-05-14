@@ -4,7 +4,7 @@ export default function ExpensesFilter(props) {
     <div className="expenses-filter">
       <div> Filter By Year</div>
       <div className="expenses-filter__control">
-        <select value={props.year} onChange={props.filterchange}>
+        <select onChange={props.onChangeFilter}>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>

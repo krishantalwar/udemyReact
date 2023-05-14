@@ -15,7 +15,7 @@ const DUMMY_EXPENSES = [
     id: "e3",
     title: "Car Insurance",
     amount: 294.67,
-    date: new Date(2021, 2, 28),
+    date: new Date(2021, 5, 28),
   },
   {
     id: "e4",
@@ -30,8 +30,8 @@ const App = () => {
 
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
-      // return [expense, ...prevExpenses];
-      return [...prevExpenses, expense];
+      return [expense, ...prevExpenses];
+      // return [...prevExpenses, expense];
     });
   };
 
