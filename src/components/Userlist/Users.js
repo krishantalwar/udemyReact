@@ -1,9 +1,10 @@
 import Userlist from "./Userlist";
+import React, { Fragment } from "react";
 export default function Users(props) {
   // console.log(props);
   return (
-    <div className="userlist">
+    <React.Fragment className="userlist">
       <Userlist delete={props.delete} users={props.users} />
-    </div>
+    </React.Fragment>
   );
 }
