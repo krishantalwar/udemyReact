@@ -4,7 +4,7 @@ import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
 import AuthContext from "../../store/authContext";
-
+import Input from "../UI/input/input";
 const emailReducer = (state, action) => {
   // console.log(state);
   // console.log(action);
@@ -63,17 +63,17 @@ const Login = (props) => {
   const { isvalid: passwordIsValid } = passwordState;
 
   useEffect(() => {
-    console.log("ss");
+    // console.log("ss");
     const change = setTimeout(() => {
       setFormIsValid((prev) => {
-        console.log("dddddde");
+        // console.log("dddddde");
         // return emailState.isvalid && passwordState.isvalid;
         return passwordIsValid && emailIsValid;
       });
     }, 200);
 
     return () => {
-      console.log("cleanup");
+      // console.log("cleanup");
       clearTimeout(change);
     };
     // }, [emailState, passwordState]);
@@ -146,34 +146,26 @@ const Login = (props) => {
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <div
-          className={`${classes.control} ${
-            emailState.isvalid === false ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="email">E-Mail</label>
-          <input
-            type="email"
-            id="email"
-            value={emailState.value}
-            onChange={emailChangeHandler}
-            onBlur={validateEmailHandler}
-          />
-        </div>
-        <div
-          className={`${classes.control} ${
-            passwordState.isvalid === false ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={passwordState.value}
-            onChange={passwordChangeHandler}
-            onBlur={validatePasswordHandler}
-          />
-        </div>
+        <Input
+          isvalid={emailState.isvalid}
+          type="email"
+          id="email"
+          label="Email"
+          value={emailState.value}
+          ChangeHandler={emailChangeHandler}
+          BlurHandler={validateEmailHandler}
+        />
+
+        <Input
+          isvalid={passwordState.isvalid}
+          type="password"
+          id="password"
+          label="Password"
+          value={passwordState.value}
+          ChangeHandler={passwordChangeHandler}
+          BlurHandler={validatePasswordHandler}
+        />
+
         <div className={classes.actions}>
           <Button type="submit" className={classes.btn} disabled={!formIsValid}>
             Login

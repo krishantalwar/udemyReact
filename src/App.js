@@ -42,7 +42,7 @@ function App() {
       </main> */}
       {/* </AuthContext.Provider> */}
       <MainHeader />
-      {/* <div>dd</div> */}
+
       <main>
         {!authContext.isLoggedIn && <Login />}
         {authContext.isLoggedIn && <Home />}

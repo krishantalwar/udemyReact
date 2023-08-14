@@ -6,8 +6,8 @@ import AuthContext from "../../store/authContext";
 
 const Navigation = (props) => {
   const ctx = useContext(AuthContext);
-  console.log(ctx);
-  console.log(ctx.onLogout);
+  // console.log(ctx);
+  // console.log(ctx.onLogout);
   return (
     <nav className={classes.nav}>
       <ul>
